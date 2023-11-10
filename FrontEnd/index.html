@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+	<script src="./index.js"></script>
+	<script src="https://kit.fontawesome.com/de83688f37.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	
+	<a href="#modal1" class="js-modal">Ouvrir la boite modal</a>
+	<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
+		<div class="modal-wrapper js-modal-stop">
+			<button class="js-modal-close"><i class="fa-solid fa-x"></i></button>
+			<div id="title-modal" class="gallerie-photo">Galerie photo</div>
+			<div class="gallery-modal">
+				
+			</div>
+			<div class="line"></div>
+			
+			<button class="ajouter-photo">Ajouter une photo</button>
+		</div>
+	</aside>
+	<a href="#modal2" class="js-modal">Ouvrir la boite modal</a>
+	<aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
+		<div class="modal-wrapper js-modal-stop">
+			<button class="js-modal-close"><i class="fa-solid fa-x"></i></button>
+			<div id="title-modal" class="gallerie-photo">Ajout photo</div>
+		<div class="ajout-photo-container">
+			<div class="ajouter-image-container">
+				<i class="fa-solid fa-image"></i>
+				<button onclick="importData()" class="ajouter-button">+ ajouter photo</button>
+				<p class="text_sizephoto">jpg, png : 4mo max</p>
+			</div>
+
+			<label class="titre-text">Titre</label>
+			<input type="text" class="titre-box" placeholder="titre">
+			<p></p>
+
+			<label class="titre-text">Catégorie</label>
+			<select class="titre-box">
+			<option value="opt-objets">Objets</option>
+			<option value="opt-appartements">Appartements</option>
+			<option value="opt-hotels">Hôtels & restaurants</option>
+			</select>
+			<div class="line-2"></div>
+				<button class="valider-button">Valider</button>
+			</div>
+		</div>
+	</aside>
+	
+	
+<header>		
+	<div class="header_modeedition">
+		<div class="modeedition"><i class="fa-solid fa-pen-to-square"></i>Mode édition</div>
+	</div>
+	<div class="header_sophie">
+		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+		<nav>
+			<ul>
+				<a href="index.html"></a><li>projets</li></a>
+				<li>contact</li>
+				<a id="loginButton"href="login.html"><li>login</li></a>
+				<a id="logoutButton"href="#"><li>logout</li></a>
+				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main>
+	<section id="introduction">
+		<figure>
+			<img src="./assets/images/sophie-bluel.png" alt="">
+		</figure>
+		<article>
+			<h2>Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+	</section>
+	<div class="buttons-container">
+		<button id="button-tous" class="button-project">Tous</button>
+		<button id="button-objets" class="button-project">Objets</button>
+		<button id="button-appartements" class="button-project">Appartements</button>
+		<button id="button-hotels" class="button-project">Hôtels & restaurants</button>
+	</div>
+	<section id="portfolio">
+		<div class="projets_container">
+			<h2>Mes Projets</h2><div class="modifier"><i class="fa-solid fa-pen-to-square"></i> modifier</div>
+		</div>
+		<div class="gallery">
+		</div>
+	</section>
+	<section id="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+</main>
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+</body>
+</html>
+
+

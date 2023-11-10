@@ -1,0 +1,523 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** end reset css**/
+body {
+	max-width: 1140px;
+	margin:auto;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+}
+.header_sophie {
+	display: flex;
+	justify-content: space-between;
+	margin: 50px 0;
+	width:100%;
+}
+section {
+	margin: 50px 0
+}
+
+h1{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Syne';
+	font-size: 22px;
+	font-weight: 800;
+	color: #B1663C
+}
+
+/** Buttons **/
+.buttons-container {
+	justify-content: center;
+	gap: 20px;
+	display: none;
+}
+
+.button-project {
+	color: #1D6154;
+	text-align: center;
+	font-family: Syne;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border-radius: 60px;
+	border: 1px solid #1D6154;
+	padding-left: 22px;
+	padding-right: 22px;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	display: none;
+}
+
+
+h1 > span {
+	font-family: 'Work Sans';
+	font-size:10px;
+	letter-spacing: 0.1em;
+;
+}
+
+h2{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+
+}
+nav li {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+li:hover {
+	color: #B1663C;
+}
+#introduction {
+	display: flex;
+	align-items: center;
+}
+#introduction figure {
+	flex: 1
+}
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+.projets_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10px;
+	
+}
+.modifier {
+	align-self: center;
+	display: flex;
+	margin-bottom: 2em;
+    gap: 10px;
+	display: none;
+}
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+
+}
+#contact  {
+	width: 50%;
+margin: auto;
+}
+#contact > * {
+	text-align: center;
+
+}
+#contact h2{
+	margin-bottom: 20px;
+}
+#contact form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label {
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+
+/*logged in/mode edition*/
+.header_modeedition{
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	background-color: black;
+	display: none;
+}
+
+.modeedition {
+	align-self: center;
+	padding: 20px;
+	margin: 0;
+	gap: 10px;
+	color: white;
+}
+
+#login {
+	width: 50%;
+margin: auto;
+}
+#login > * {
+	text-align: center;
+
+}
+#login h2{
+	margin-bottom: 20px;
+}
+#login form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#login input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#login label {
+	margin: 2em 0 1em 0;
+}
+#login textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}
+
+.motdepasseoublie {
+	display: flex;
+	justify-content: center;
+	color: #3D3D3D;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	text-decoration-line: underline;
+}
+
+* {box-sizing: border-box;}
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.30);
+}
+
+.modal-wrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 630px;
+	height: auto;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	padding-left: 5%;
+	padding-right: 5%;
+	border-radius: 10px;
+	background-color: white;
+	position: relative;
+}
+
+.js-modal-close {
+	border: none;
+	background-color: #fff;
+	font-size: 22px;
+	position: absolute;
+	top: 26px;
+    right: 30px;
+}
+
+.gallerie-photo {
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	padding-bottom: 46px;
+}
+
+.gallery-modal {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+.figure_modal {
+	display: inline-block;
+    position: relative;
+	max-width: 78px;
+    max-height: auto;
+	margin-right: 10px;
+	margin-bottom: 25px;
+}
+
+.trash-button {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	top: 4px;
+	right: 15px;
+	width: 17px;
+	height: 17px;
+	background-color: #000;
+	border: none;
+	border-radius: 2px;
+}
+
+.trash-icon {
+	color: #fff;
+	font-size: 10px;
+	align-self: center;
+	justify-content: center;
+}
+
+.line {
+	width: 465px;
+	height: 1px;
+	background: #B3B3B3;
+	margin-top: 38px;
+	margin-bottom: 38px;
+	
+}
+
+.line-2 {
+	width: 420px;
+	height: 1px;
+	background: #B3B3B3;
+	margin-top: 38px;
+	margin-bottom: 38px;
+}
+
+.ajout-photo-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-self: center;
+}
+
+.ajouter-photo {
+	display: flex;
+	align-self: center;
+	width: fit-content;
+	height: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 60px;
+	background: #1D6154;
+	color: #fff;
+	color: #FFF;
+	text-align: center;
+	font-family: Syne;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border: none;
+}
+
+.ajouter-image-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	border-radius: 3px;
+	background: #E8F1F6;
+	width: 420px;
+	height: 169px;
+}
+
+.ajouter-button {
+	display: flex;
+	align-self: center;
+	width: fit-content;
+	height: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 60px;
+	background: #CBD6DC;
+	color: #306685;
+	text-align: center;
+	font-family: Syne;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border: none;
+}
+
+
+.fa-image {
+	font-size: 80px;
+	color: #B9C5CC;
+	align-self: center;
+	justify-content: center;
+}
+
+.valider-button {
+	display: flex;
+	align-self: center;
+	width: fit-content;
+	height: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 60px;
+	background: #1D6154;
+	color: #fff;
+	color: #FFF;
+	text-align: center;
+	font-family: Syne;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border: none;
+}
+
+.text_sizephoto {
+	justify-content: center;
+	align-self: center;
+	color: #444;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.titre-box {
+	width: 420px;
+	height: 51px;
+	flex-shrink: 0;
+	background: #FFF;
+	box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.09);
+	border: none;
+	
+}
+
+.titre-text {
+	color: #3D3D3D;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+
+
+
