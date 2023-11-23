@@ -81,7 +81,6 @@ h1{
 .buttons-container {
 	justify-content: center;
 	gap: 20px;
-	display: none;
 }
 
 .button-project {
@@ -98,7 +97,6 @@ h1{
 	padding-right: 22px;
 	padding-top: 9px;
 	padding-bottom: 9px;
-	display: none;
 }
 
 
@@ -455,6 +453,14 @@ footer nav ul {
 	border: none;
 }
 
+.valider-button-ko{
+	background-color: #A7A7A7;
+}
+
+.valider-button-ok{
+	background-color: #306685;
+}
+
 
 .fa-image {
 	font-size: 80px;
@@ -468,14 +474,12 @@ footer nav ul {
 	align-self: center;
 	width: fit-content;
 	height: auto;
+	color: #FFFFFF;
 	padding-left: 50px;
 	padding-right: 50px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-radius: 60px;
-	background: #1D6154;
-	color: #fff;
-	color: #FFF;
 	text-align: center;
 	font-family: Syne;
 	font-size: 14px;
@@ -518,6 +522,50 @@ footer nav ul {
 	padding-bottom: 10px;
 }
 
+.preview-img-size {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	width: 76px;
+	height:76px;
+}
 
+.input-work {
+	display: none;
+}
 
+.img-size {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	height: 169px;
+	width: auto;
+}
 
+.container-forms {
+	display: flex;
+	flex-direction: column;
+}
+
+/* Style for the input inside the wrapper */
+.select-categorie-input {
+	width: 100%;
+	padding: 8px;
+	}
+
+/* Style for the select inside the wrapper */
+.select-categorie-dropdown {
+width: 100%;
+padding: 8px;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+pointer-events: none;
+}
+
+/* Style for the wrapper div */
+.select-categorie-wrapper {
+	position: relative;
+	display: inline-block;
+  }

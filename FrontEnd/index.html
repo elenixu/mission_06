@@ -14,7 +14,7 @@
 </head>
 <body>
 	
-	<a href="#modal1" class="js-modal">Ouvrir la boite modal</a>
+	
 	<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
 		<div class="modal-wrapper js-modal-stop">
 			<button class="js-modal-close"><i class="fa-solid fa-x"></i></button>
@@ -27,31 +27,48 @@
 			<button class="ajouter-photo">Ajouter une photo</button>
 		</div>
 	</aside>
-	<a href="#modal2" class="js-modal">Ouvrir la boite modal</a>
 	<aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-labelledby="title-modal" style="display: none;">
 		<div class="modal-wrapper js-modal-stop">
 			<button class="js-modal-close"><i class="fa-solid fa-x"></i></button>
 			<div id="title-modal" class="gallerie-photo">Ajout photo</div>
 		<div class="ajout-photo-container">
-			<div class="ajouter-image-container">
-				<i class="fa-solid fa-image"></i>
-				<button onclick="importData()" class="ajouter-button">+ ajouter photo</button>
-				<p class="text_sizephoto">jpg, png : 4mo max</p>
-			</div>
+			<form id="sendWorkForm" onsubmit="uploadImage(event)">
+				<div class="ajouter-image-container">
+					<img class="preview-img-size" src="/assets/icons/empty-img.svg" id="workPic" />
+					
+					<label class="ajouter-button" for="workInput" class="workInput">
+						+ Ajouter Photo
+					</label>
+					<input name="image" class="input-work" type="file" accept="image/jpeg, image/jpg, image/png" id="workInput">
+					
+					
+				
+					<p class="text_sizephoto">jpg, png : 4mo max</p>
+				</div>
+				<div class="container-forms">
+					<div class="container-forms">
+						<label class="titre-text">Titre</label>
+						<input id="titreInput" name="title" type="text" class="titre-box" placeholder="">
+					</div>
+					<div class="container-forms">
+						<label class="titre-text">Catégorie</label>
 
-			<label class="titre-text">Titre</label>
-			<input type="text" class="titre-box" placeholder="titre">
-			<p></p>
-
-			<label class="titre-text">Catégorie</label>
-			<select class="titre-box">
-			<option value="opt-objets">Objets</option>
-			<option value="opt-appartements">Appartements</option>
-			<option value="opt-hotels">Hôtels & restaurants</option>
-			</select>
-			<div class="line-2"></div>
-				<button class="valider-button">Valider</button>
-			</div>
+						<div class="select-categorie-wrapper">
+							<input  name="category" type="text" class="select-categorie-input" readonly  placeholder="Select an option" onclick="showCategoriesOptions()">
+							<!-- Dropdown options -->
+							<select class="select-categorie-dropdown" id="categoryInput">i
+								<option value="1">Objets</opton>
+								<option value="2">Appartements</option>
+								<option value="3">Hôtels & restaurants</option>
+							</select>
+						</div>
+						
+					</div>
+						<div class="line-2"></div>
+						<button type="submit" class="valider-button valider-button-ko" id="uploadWorkButton">Valider</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</aside>
 	
@@ -93,7 +110,8 @@
 	</div>
 	<section id="portfolio">
 		<div class="projets_container">
-			<h2>Mes Projets</h2><div class="modifier"><i class="fa-solid fa-pen-to-square"></i> modifier</div>
+			<h2>Mes Projets</h2>
+			<a  class="modifier js-modal" href="#modal1"><i class="fa-solid fa-pen-to-square"></i> modifier</a>
 		</div>
 		<div class="gallery">
 		</div>

@@ -19,6 +19,19 @@ let buttonAjouterImage = ""
 let token = ""
 let profilePic = ""
 let ajouterButton = ""
+let workPic = ""
+let workInput = ""
+
+let imageCategorySelect = ""
+let selectedCategory = ""
+
+let titleInput = ""
+let categorieInput = ""
+let uploadWorkButton = ""
+
+let imageInput = ""
+
+
 
 
 //Fetch of the buttons and event listeners once the DOM is loaded
@@ -54,18 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
     buttonHotels.addEventListener("click", displayHotels);
     buttonLogOut.addEventListener("click",  function () {
       localStorage.removeItem('token');
-      hideModeEdition();
-      hideModifier();
-      displayLogInButton();
+      token="";
+      //hideModeEdition();
+      //hideModifier();
+      //displayLogInButton();
+      checkToken();
   
     })
     buttonAjouterImage.addEventListener("click", function (){
-      // closeModal();
-      openModalVictoria("#modal2");
+       closeModal();
+      openModal2("#modal2");
 
     })
-    
-    
 
     document.querySelectorAll('.js-modal').forEach(a => {
       a.addEventListener('click', openModal)
@@ -74,16 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
     displayAll()
     //displayAllModal()
 
-  if(token !=null){
-    displayLogOutButton();
-    displayModeEdition();
-    displayModifier();
-  }
-  else {
-    displayLogInButton();
-  }
+   
 
-  
+checkToken()
 
 });
 // function emptyWorks (remove the infinite photo loadings)
@@ -246,7 +252,7 @@ openModal = function (e) {
 
 closeModal = function (e) {
   if (modal === null) return
-  e.preventDefault()
+  //e.preventDefault()
   modal.style.display = "none"
   modal.setAttribute('aria-hidden', 'true')
   modal.removeAttribute('aria-modal')
@@ -254,6 +260,17 @@ closeModal = function (e) {
   //modal = null
   modal.querySelector('.js-modal-close').removeEventListener('click', closeModal)
   modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
+}
+
+function closeModal2() {
+  let modal2 = document.getElementById('modal2')
+  modal2.style.display = "none"
+  modal2.setAttribute('aria-hidden', 'true')
+  modal2.removeAttribute('aria-modal')
+  modal2.removeEventListener('click', closeModal)
+  //modal = null
+  modal2.querySelector('.js-modal-close').removeEventListener('click', closeModal)
+  modal2.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
 }
 
 stopPropagation = function (e) {
@@ -326,37 +343,45 @@ function deleteWork (workId) {
   .then(res => console.log(res))
 }
 
-function uploadImage() {
-  var token = localStorage.getItem('token');
-  var imageInput = document.getElementById('imageInput');
-  var formData = new FormData();
-  
-  // Append the file to the FormData object
-  formData.append('image', imageInput.files[0]);
+function uploadImage(event) {
 
-  fetch('http://localhost:5678/api/works', {
-      method: 'POST',
-      headers: {
-          'Authorization': 'Bearer ' + token,
-          // 'My-Custom-Header': 'foobar',  // You can add custom headers if needed
-      },
-      body: formData,
-  })
-  .then(response => response.json())
-  .then(data => {
-      console.log('Image uploaded successfully:', data);
-  })
-  .catch(error => {
-      console.error('Error uploading image:', error);
-  });
-}
+  if(!isUploadWorkFormOk()){
+    
+  }else{
+    event.preventDefault()
+    var token = localStorage.getItem('token');
+    var formData = new FormData;
+    console.log(formData)
+    imageInput = document.querySelector("#workInput");
+    titleInput = document.querySelector("#titreInput");
+    categorieInput = document.querySelector("#categoryInput");
+    console.log(Array.from(formData));
+    
+    // Append the file to the FormData object
+    formData.append('image', imageInput.files[0]);
+    formData.append("title", titleInput.value);
+    formData.append("category", categorieInput.value);
+    console.log(formData);
 
 
-profilePic = documen.getElementById('profile-pic');
-ajouterButton = documen.getElementById('ajouter-button');
-
-ajouterButton.onchange = function (){
-  profilePic.src = URL.createObjectURL(ajouterButton.files[0])
+    fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => response.json())
+        .then(data => {
+          console.log('Response:', data);
+          closeModal2() 
+          displayAll()
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+        
+  }  
 }
 
 
@@ -370,7 +395,7 @@ function emptyWorksModal() {
 
 
 
-function openModalVictoria(modalId)  {
+function openModal2(modalId)  {
   const target = document.querySelector(modalId)
   target.style.display = null
   target.removeAttribute('aria-hidden')
@@ -379,19 +404,117 @@ function openModalVictoria(modalId)  {
   modal.addEventListener('click', closeModal)
   modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
   modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
-}
 
+  let workPic = document.getElementById("workPic")
+   imageInput = document.querySelector("#workInput");
+   titleInput = document.querySelector("#titreInput");
+   categorieInput = document.querySelector("#categoryInput");
+   uploadWorkButton = document.querySelector('#uploadWorkButton')
 
-function importData() {
-  let input = document.createElement('input');
-  input.type = 'file';
-  input.onchange = _ => {
-    // you can use this method to get file and perform respective operations
-            let files =   Array.from(input.files);
-            console.log(files);
-        };
-  input.click();
+  titleInput.onchange = function(){
+    setUploadWorkButtonColor()
+  }
+
+  categorieInput.onchange = function(){
+    setUploadWorkButtonColor()
+  }
+
+  imageInput.onchange = function(){
+    setUploadWorkButtonColor()
+
+    //We display the new pic
+    workPic.src = URL.createObjectURL(imageInput.files[0])
+    workPic.classList.remove('preview-img-size')
+    workPic.classList.add('img-size')
+    let ajouterButtonModal2 = document.querySelector('.ajouter-button')
+    ajouterButtonModal2.style.display = 'none'
+    let removePngText = document.querySelector('.text_sizephoto')
+    removePngText.style.display = 'none'
+  }
   
 }
 
 
+//Pour la listbox
+function showCategoriesOptions() {
+  document.querySelector('.select-categorie-dropdown').style.opacity = 1;
+  document.querySelector('.select-categorie-dropdown').style.pointerEvents = 'auto';
+}
+
+function updateCategorieInput() {
+  var selectedOption = document.querySelector('.select-categorie-dropdown').value;
+  document.querySelector('.select-categorie-input').value = selectedOption;
+
+  // Hide the dropdown after selecting an option
+  document.querySelector('.select-categorie-dropdown').style.opacity = 0;
+  document.querySelector('.select-categorie-dropdown').style.pointerEvents = 'none';
+}
+
+
+//Checks to validate button
+
+function isUploadWorkFormOk() {
+
+  let isTitleOk = false
+  let isPicOk = false
+  let isCategoryOk = false
+
+  if (titleInput.value != null && titleInput.value != "") {
+    isTitleOk = true
+  }else{
+    isTitleOk = false
+  }
+
+  if (imageInput.files[0] != null && imageInput.value != "") {
+    isPicOk = true
+  }else{
+    isPicOk = false
+  }
+
+  if (categorieInput.value != null && categorieInput.value != "") {
+    isCategoryOk = true
+  }else{
+    isCategoryOk = false
+  }
+
+  return isTitleOk && isPicOk && isCategoryOk
+
+} 
+
+function setUploadWorkButtonColor(){
+  if(isUploadWorkFormOk()){
+    uploadWorkButton.classList.remove('valider-button-ko')
+    uploadWorkButton.classList.add('valider-button-ok')
+  }else{
+    uploadWorkButton.classList.remove('valider-button-ok')
+    uploadWorkButton.classList.add('valider-button-ko')
+  }
+
+}
+
+function displayFilters(){
+  let filters = document.querySelector('.buttons-container')
+  filters.style.display = 'flex';
+  
+}
+
+function hideFilters(){
+  let filters = document.querySelector('.buttons-container')
+  filters.style.display = 'none';
+}
+
+function checkToken () {
+  token = localStorage.getItem('token');
+  if(token !=null){
+    displayLogOutButton();
+    displayModeEdition();
+    displayModifier();
+    hideFilters();
+  }
+  else {
+    displayLogInButton();
+    hideModifier();
+    hideModeEdition();
+    displayFilters();
+  }
+}
