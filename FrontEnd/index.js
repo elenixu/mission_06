@@ -218,12 +218,10 @@ function displayModifier () {
 
 function hideModeEdition(){
   header_modeedition.style.display = 'none';
- 
 }
 
 function hideModifier(){
   modifier.style.display = 'none';
-
 }
 
 //modal fenetre 
@@ -245,9 +243,6 @@ openModal = function (e) {
   galleryModal = document.querySelector('.gallery-modal');
 
   displayAllModal()
-
-
-
 }
 
 closeModal = function (e) {
@@ -260,6 +255,7 @@ closeModal = function (e) {
   //modal = null
   modal.querySelector('.js-modal-close').removeEventListener('click', closeModal)
   modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
+  displayAll()
 }
 
 function closeModal2() {
@@ -325,7 +321,6 @@ function displayWorkModal(imageUrl, title, workId) {
       deleteWork (workId);
       galleryModal.removeChild(figure)
     })
-
 }
 
 function deleteWork (workId) {
@@ -376,6 +371,11 @@ function uploadImage(event) {
           console.log('Response:', data);
           closeModal2() 
           displayAll()
+          imageInput.value = null
+          titleInput.value = null
+          categorieInput.value = null
+          setImagePreviewModal2()
+          setUploadWorkButtonColor()
         })
         .catch(error => {
           console.error('Error:', error);
@@ -421,7 +421,6 @@ function openModal2(modalId)  {
 
   imageInput.onchange = function(){
     setUploadWorkButtonColor()
-
     //We display the new pic
     workPic.src = URL.createObjectURL(imageInput.files[0])
     workPic.classList.remove('preview-img-size')
@@ -430,8 +429,18 @@ function openModal2(modalId)  {
     ajouterButtonModal2.style.display = 'none'
     let removePngText = document.querySelector('.text_sizephoto')
     removePngText.style.display = 'none'
-  }
-  
+  } 
+}
+
+function setImagePreviewModal2(){
+  let workPic = document.getElementById("workPic")
+  workPic.src= "/assets/icons/empty-img.svg"
+  workPic.classList.add('preview-img-size')
+  workPic.classList.remove('img-size')
+  let ajouterButtonModal2 = document.querySelector('.ajouter-button')
+  ajouterButtonModal2.style.display = 'flex'
+  let removePngText = document.querySelector('.text_sizephoto')
+  removePngText.style.display = 'flex'
 }
 
 
@@ -485,9 +494,11 @@ function setUploadWorkButtonColor(){
   if(isUploadWorkFormOk()){
     uploadWorkButton.classList.remove('valider-button-ko')
     uploadWorkButton.classList.add('valider-button-ok')
+    uploadWorkButton.disabled = false
   }else{
     uploadWorkButton.classList.remove('valider-button-ok')
     uploadWorkButton.classList.add('valider-button-ko')
+    uploadWorkButton.disabled = true
   }
 
 }
@@ -495,7 +506,6 @@ function setUploadWorkButtonColor(){
 function displayFilters(){
   let filters = document.querySelector('.buttons-container')
   filters.style.display = 'flex';
-  
 }
 
 function hideFilters(){

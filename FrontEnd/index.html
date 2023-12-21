@@ -36,7 +36,7 @@
 				<div class="ajouter-image-container">
 					<img class="preview-img-size" src="/assets/icons/empty-img.svg" id="workPic" />
 					
-					<label class="ajouter-button" for="workInput" class="workInput">
+					<label class="ajouter-button workInput" for="workInput" >
 						+ Ajouter Photo
 					</label>
 					<input name="image" class="input-work" type="file" accept="image/jpeg, image/jpg, image/png" id="workInput">
@@ -56,7 +56,7 @@
 						<div class="select-categorie-wrapper">
 							<input  name="category" type="text" class="select-categorie-input" readonly  placeholder="Select an option" onclick="showCategoriesOptions()">
 							<!-- Dropdown options -->
-							<select class="select-categorie-dropdown" id="categoryInput">i
+							<select class="select-categorie-dropdown" id="categoryInput">
 								<option value="1">Objets</opton>
 								<option value="2">Appartements</option>
 								<option value="3">Hôtels & restaurants</option>
@@ -65,7 +65,7 @@
 						
 					</div>
 						<div class="line-2"></div>
-						<button type="submit" class="valider-button valider-button-ko" id="uploadWorkButton">Valider</button>
+						<button disabled type="submit" class="valider-button valider-button-ko" id="uploadWorkButton">Valider</button>
 					</div>
 				</div>
 			</form>
